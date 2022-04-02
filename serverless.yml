@@ -1,0 +1,21 @@
+service: aws-node
+
+frameworkVersion: "2 || 3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+plugins:
+  - serverless-plugin-optimize
+  - serverless-offline
+  - serverless-ignore
+
+functions:
+  health:
+    handler: dist/functions/health/checkFunction.handler
+    events:
+      - httpApi: 
+          path: /health
+          method: get

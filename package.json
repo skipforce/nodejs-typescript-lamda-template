@@ -1,0 +1,33 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "prepare": "npm run prebuild && npm run build",
+    "prepackage": "rimraf .serverless",
+    "package": "sls package",
+    "start": "sls offline start",
+    "run-local": "npm run prepare && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@middy/core": "^2.5.7",
+    "@middy/http-error-handler": "^2.5.7",
+    "@middy/http-json-body-parser": "^2.5.7",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1106.0",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.93",
+    "serverless-ignore": "^0.2.1",
+    "serverless-offline": "^8.5.0",
+    "serverless-plugin-optimize": "^4.2.1-rc.1"
+  }
+}
